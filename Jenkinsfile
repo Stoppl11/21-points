@@ -1,14 +1,11 @@
 node {
 
-def nodeHome = tool name: 'node-7.4.0‘, type: jenkins.plugins.nodejs.tools.NodeJSInstallation
+    def nodeHome = tool name: 'node-7.4.0‘, type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
     env.PATH = "${nodeHome}/bin:${env.PATH}"
 
     stage('checkout') {
         checkout scm
     }
-
-    // uncomment these 2 lines and edit the name 'node-4.6.0' according to what you choose in configuration
-
 
     stage('check tools') {
         sh "node -v"
